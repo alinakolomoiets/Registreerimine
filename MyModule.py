@@ -1,7 +1,6 @@
 import random
 login=["Lina","Flora"]
 password=["10203090","10509060"]
-v=""
 def men():
     while True:
         print("1-Registreerimine")
@@ -39,17 +38,17 @@ def men():
                     print("Попробуй снова")
         if a==2:
             user=print("Введи логин:")
-            v= v_aut(user)
-        if v==True:
-            print("Успешный вход")
-        else:
-            print("Попробуйте ещё раз:")
-            pasword=print("Введи пароль:")
-            v1=v_auto(pasword)
-        if v1==True:
-            print("Успешный вход")
-        else:
-            print("Попробуйте ещё раз:")
+            v=aut(user)
+            if v==True:
+                print("Успешный вход")
+            else:
+                print("Попробуйте ещё раз:")
+                pasword=print("Введи пароль:")
+                v1=auto(pasword)
+            if v1==True:
+                print("Успешный вход")
+            else:
+                print("Попробуйте ещё раз:")#нужно исправить 
            
         if a==3:
             print("Досвидания!!")
@@ -84,16 +83,14 @@ def ise_reg(password:str):
             q=True
         if pas in list ("!#¤%&/()=?$€"):
             q=True 
-        else:
-            pas=False
         return pas
-def v_aut(user):
+def aut(user):
     if user in login:
         v=True  
     else:
         v=False
     return v
-def  v_auto(pasword):
+def  auto(pasword):
     if pasword in password:
         v1=True
     else:
