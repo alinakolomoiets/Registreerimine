@@ -1,6 +1,6 @@
 import random
-login=["Lina","Flora"]
-password=["10203090","10509060"]
+login=[]
+password=[]
 def men():
     while True:
         print("1-Registreerimine")
@@ -18,7 +18,7 @@ def men():
                 else:
                     print("Логин уже используется:")
                     print()
-            print("Как вы хотите создать логин:")
+            print("Как вы хотите создать пароль:")
             print("1- Сгенирировать пароль автоматичечки")
             print("2-Cделать самому")
             o=int(input())
@@ -31,24 +31,22 @@ def men():
                 print(" пароль должен содержать: знаки, большие символы а так же цифры.")
                 pswr=input("Введите пароль:")
                 h=ise_reg(password)
-                if h==True:
+                while:
+                    if h==True:
                     login.append(user)
                     password.append(pswr)
                 else:
-                    print("Попробуй снова")
+                    print()
+                    print("Попробуй снова:")
+                    print()
+                        
+                       
         if a==2:
             user=print("Введи логин:")
-            v=aut(user)
-            if v==True:
-                print("Успешный вход")
-            else:
-                print("Попробуйте ещё раз:")
-                pasword=print("Введи пароль:")
-                v1=auto(pasword)
-            if v1==True:
-                print("Успешный вход")
-            else:
-                print("Попробуйте ещё раз:")#нужно исправить 
+            pswr=print("Введи пароль:")
+                #print("Успешный вход")
+                #print("Попробуйте ещё раз:")
+                #print()
            
         if a==3:
             print("Досвидания!!")
@@ -74,25 +72,16 @@ def auto_reg():
 
 def ise_reg(password:str):
     s=list(password)
+    q=False
     for pas in s :
-        if pas.isdigit():  
+        if pas.isdigit(): # Состоит ли строка из цифр 
             q=True
-        if pas.isupper():
-            q=True 
-        if pas.islower():
+        if pas.isalpha(): # Состоит ли строка из букв
             q=True
-        if pas in list ("!#¤%&/()=?$€"):
+        if pas.isupper(): # Состоит ли строка из символов в верхнем регистре
             q=True 
-        return pas
-def aut(user):
-    if user in login:
-        v=True  
-    else:
-        v=False
-    return v
-def  auto(pasword):
-    if pasword in password:
-        v1=True
-    else:
-        v1=False
-    return v1
+        if pas.islower(): # Состоит ли строка из символов в нижнем регистре
+            q=True
+        if pas in list (">","!","#","¤","%","&","/","(",")","=","?","$","€"): #Состоит ли строка из символов
+            q=True 
+    return q
